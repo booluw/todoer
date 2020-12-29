@@ -1,0 +1,78 @@
+[debug] [2020-12-29T14:56:30.848Z] ----------------------------------------------------------------------
+[debug] [2020-12-29T14:56:30.892Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Johnson\AppData\Local\Yarn\Data\global\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-12-29T14:56:30.893Z] CLI Version:   9.0.0
+[debug] [2020-12-29T14:56:30.893Z] Platform:      win32
+[debug] [2020-12-29T14:56:30.894Z] Node Version:  v14.15.1
+[debug] [2020-12-29T14:56:31.062Z] Time:          Tue Dec 29 2020 15:56:30 GMT+0100 (West Africa Standard Time)
+[debug] [2020-12-29T14:56:31.063Z] ----------------------------------------------------------------------
+[debug] [2020-12-29T14:56:31.063Z] 
+[debug] [2020-12-29T14:56:31.086Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2020-12-29T14:56:31.515Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-29T14:56:31.517Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Johnson\Desktop\Devloper\todoer
+
+[debug] [2020-12-29T14:56:34.141Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2020-12-29T14:56:34.142Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2020-12-29T14:57:14.238Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-12-29T14:57:14.239Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-29T14:57:14.875Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Tue, 29 Dec 2020 14:57:23 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-29T14:57:14.932Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects  
+ {"projectId":"todoer","name":"todo app"}
+[debug] [2020-12-29T14:57:16.531Z] <<< HTTP RESPONSE 409 {"vary":"X-Origin, Referer, Origin,Accept-Encoding","content-type":"application/json; charset=UTF-8","date":"Tue, 29 Dec 2020 14:57:25 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1170","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-29T14:57:16.531Z] <<< HTTP RESPONSE BODY {"error":{"code":409,"message":"Requested entity already exists","status":"ALREADY_EXISTS"}}
+[debug] [2020-12-29T14:57:17.352Z] FirebaseError: HTTP Error: 409, Requested entity already exists
+    at module.exports (C:\Users\Johnson\AppData\Local\Yarn\Data\global\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at Request._callback (C:\Users\Johnson\AppData\Local\Yarn\Data\global\node_modules\firebase-tools\lib\api.js:41:35)
+    at Request.self.callback (C:\Users\Johnson\AppData\Local\Yarn\Data\global\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:315:20)
+    at Request.EventEmitter.emit (domain.js:486:12)
+    at Request.<anonymous> (C:\Users\Johnson\AppData\Local\Yarn\Data\global\node_modules\request\request.js:1154:10)
+    at Request.emit (events.js:315:20)
+    at Request.EventEmitter.emit (domain.js:486:12)
+    at IncomingMessage.<anonymous> (C:\Users\Johnson\AppData\Local\Yarn\Data\global\node_modules\request\request.js:1076:12)
+    at Object.onceWrapper (events.js:421:28)
+    at IncomingMessage.emit (events.js:327:22)
+    at IncomingMessage.EventEmitter.emit (domain.js:486:12)
+    at endReadableNT (_stream_readable.js:1327:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
+[error] 
+[error] Error: Failed to create project because there is already a project with ID todoer. Please try again with a unique project ID.
+[debug] [2020-12-29T14:58:24.575Z] ----------------------------------------------------------------------
+[debug] [2020-12-29T14:58:24.592Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Johnson\AppData\Local\Yarn\Data\global\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-12-29T14:58:24.593Z] CLI Version:   9.0.0
+[debug] [2020-12-29T14:58:24.593Z] Platform:      win32
+[debug] [2020-12-29T14:58:24.593Z] Node Version:  v14.15.1
+[debug] [2020-12-29T14:58:24.595Z] Time:          Tue Dec 29 2020 15:58:24 GMT+0100 (West Africa Standard Time)
+[debug] [2020-12-29T14:58:24.596Z] ----------------------------------------------------------------------
+[debug] [2020-12-29T14:58:24.596Z] 
+[debug] [2020-12-29T14:58:24.658Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-29T14:58:24.660Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Johnson\Desktop\Devloper\todoer
+

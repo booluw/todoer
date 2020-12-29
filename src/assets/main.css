@@ -15,7 +15,7 @@ body {
   font-size: 18px;
   padding: 0;
   margin: 0;
-  font-family: Poppins,sans-serif;
+  font-family: Josefin Sans,sans-serif;
   background-color: #fafafa;
 }
 
@@ -92,7 +92,6 @@ body.dark {
 }
 
 .list {
-  font-weight: 700;
   padding: 1rem 1.2rem;
   background-color: white;
   color: #9394a5;
@@ -136,10 +135,6 @@ body.dark {
 .list--active .list__text {
   text-decoration: line-through;
   color: #d2d3db;
-}
-
-.list--last {
-  font-weight: 400;
 }
 
 .list:not(:last-of-type) {

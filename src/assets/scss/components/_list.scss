@@ -7,7 +7,6 @@
 }
 
 .list {
-    font-weight: 700;
     padding: 1rem 1.2rem;
     background-color: white;
     color: $lt-dark-grey-blue;
@@ -46,10 +45,6 @@
             text-decoration: line-through;
             color: $lt-light-grey-blue;
         }
-    }
-
-    &--last {
-        font-weight: 400;
     }
 
     &:not(:last-of-type) {
