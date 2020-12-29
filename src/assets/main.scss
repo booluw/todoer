@@ -11,3 +11,28 @@
         "scss/components/panel";
 
 @import "scss/layouts/page";
+
+.hidden {
+    &--mobile {
+        display: none;
+    }
+
+    &--desktop {
+        display: flex;
+    }
+}
+
+.lights {cursor: pointer;}
+
+//@media (min-width: $view-desktop) {
+@media (min-width: 1200px) {
+    .hidden {
+        &--mobile {
+            display: flex;
+        }
+    
+        &--desktop {
+            display: none;
+        }
+    }
+}

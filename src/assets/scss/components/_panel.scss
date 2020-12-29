@@ -14,10 +14,21 @@
         color: $lt-dark-grey-blue;
         font-weight: 700;
 
+    
+        &:hover {
+            color: $dt-light-grey;
+        }
+
         &--active {
             color: $color-blue--bright;
+        
+            &:hover {
+                color: $color-blue--bright;
+            }
         }
+
     }
+
 }
 
 .dark .panel {

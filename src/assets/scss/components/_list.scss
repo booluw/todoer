@@ -2,21 +2,42 @@
     background-color: transparent;
     overflow: hidden;
     border-radius: $border-radius;
+    background-color: $lt-light-grey-blue;
     box-shadow: 0 10px 50px -40px $lt-dark-grey-blue;
 }
 
 .list {
+    font-weight: 700;
     padding: 1rem 1.2rem;
     background-color: white;
+    color: $lt-dark-grey-blue;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+
+    &:hover:not(.list--active) {
+        .list__check {
+            background: $color-check-bg;
+            border: none;
+
+            &-child {
+                display: block;
+                background-color: white;
+                stroke: white;
+                height: 90%;
+                width: 90%;
+                border-radius: 50%;
+                transition: .001s;
+            }
+        }
+    }
 
     &--active {
         .list__check {
             background: $color-check-bg;
         
-            & > img {
+            & img {
                 display: block;
             }
         }
@@ -27,11 +48,15 @@
         }
     }
 
+    &--last {
+        font-weight: 400;
+    }
+
     &:not(:last-of-type) {
         margin: 0 0 1px;
     }
 
-    & > div:first-of-type {
+    &__details {
         display: flex;
         align-items: center;
         flex-basis: 90%;
@@ -48,19 +73,22 @@
         border-radius: 50%;
         border: .1rem solid $lt-dark-grey-blue;
     
-        & > img {
+        & img {
             display: none;
         }
     }
 
     &__text {
-            font-size: 16px;
-        
-            &--faint {
-                color: $lt-dark-grey-blue;
-            }
-        }
+        font-size: 16px;
     
+        &--faint {
+            color: $lt-dark-grey-blue;
+        }
+    }
+
+    &__btn:hover {
+        color: $dt-light-grey;
+    }
 }
 
 .dark .lists {
@@ -73,7 +101,7 @@
     color: $dt-light-grey;
     
     &__check {
-        border-color: $dt-very-dark-grey-blue--two;
+        border-color: $dt-very-dark-grey-blue--two;    
     }
 
     &--active {
@@ -81,5 +109,34 @@
         .list__text {
             color: $dt-dark-grey-blue;
         }
+    }
+
+    &:hover:not(.list--active) {
+        .list__check {
+            background: $color-check-bg;
+            border: none;
+
+            &-child {
+                background-color: $dt-dark-blue--desaturated;
+                fill: $dt-dark-blue--desaturated;
+                stroke: $dt-dark-blue--desaturated;
+            }
+        }
+    }
+}
+
+//@media (min-width: $view-desktop) {
+@media (min-width: 1200px) {
+    .list {
+        cursor: pointer;
+
+        &__cancel {
+            display: none;
+        }
+
+        &:hover &__cancel {
+            display: block;
+        }
+        
     }
 }

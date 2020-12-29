@@ -7,6 +7,7 @@
     &__top {
         background-image: url('images/bg-mobile-light.jpg');
         background-size: cover;
+        background-repeat: no-repeat;
         padding: 2.3rem 1rem 7rem;
         display: flex;
         align-items: center;
@@ -33,20 +34,35 @@
 .dark .page {
     background-color: $dt-dark-blue;
 
-    & .page__top {
+    &__top {
         background-image: url('images/bg-mobile-dark.jpg');
     }
 
 }
 
+/*
+    uncomment in production
 @media (min-width: $view-desktop) {
+*/
+@media (min-width: 1000px) {
     .page {
         &__top {
+            padding: 4rem 22rem 8rem;
+            //padding: 2.3rem 1rem 7rem;
             background-image: url('images/bg-desktop-light.jpg');
+        }
+
+        &__bottom {
+            top: 8rem;
+            padding: 0 22rem;
+        }
+
+        &__text {
+            font-weight: 400;
         }
     }
 
-    .page.dark {
+    .dark .page {
         & .page__top {
             background-image: url('images/bg-desktop-dark.jpg');
         }

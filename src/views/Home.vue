@@ -6,11 +6,13 @@
         src="@/assets/images/icon-moon.svg"
         v-if="lights"
         @click="lights = !lights"
+        class="lights"
       />
       <img
         src="@/assets/images/icon-sun.svg"
         v-else
         @click="lights = !lights"
+        class="lights"
       />
     </div>
     <div class="page__bottom">
@@ -28,16 +30,17 @@
         <div
           class="list"
           :class="{ 'list--active': list.done }"
-          v-for="(list, index) in todos"
+          v-for="(list, index) in tasks"
           :key="index"
         >
-          <div>
+          <div class="list__details" @click="markAsDone(list)">
             <div
               class="list__check"
               :class="{ 'list__check--active': list.done }"
-              @click="markAsDone(list)"
             >
-              <img src="@/assets/images/icon-check.svg" alt="Check this" />
+              <div class="list__check-child">
+                <img src="@/assets/images/icon-check.svg" alt="Check this" />
+              </div>
             </div>
             <p class="list__text">
               {{ list.title }}
@@ -45,15 +48,41 @@
           </div>
           <img
             src="@/assets/images/icon-cross.svg"
-            class="line__cancel"
+            class="list__cancel"
             alt="Delete this"
             @click="deleteTask(list)"
           />
         </div>
-        <div class="list">
+        <div class="list list--last">
           <p class="list__text list__text--faint list__text--small">
             {{ itemsLeft }} items left
           </p>
+          <div class="hidden--mobile">
+            <a
+              class="panel__link"
+              :class="[sorted == 'all' ? 'panel__link--active' : '']"
+              href="#"
+              @click.prevent="sorted = 'all'"
+            >
+              All
+            </a>
+            <a
+              class="panel__link"
+              :class="[sorted == false ? 'panel__link--active' : '']"
+              href="#"
+              @click.prevent="sorted = false"
+            >
+              Active
+            </a>
+            <a
+              class="panel__link"
+              :class="[sorted == true ? 'panel__link--active' : '']"
+              href="#"
+              @click.prevent="sorted = true"
+            >
+              Completed
+            </a>
+          </div>
           <a
             class="list__text list__text--faint list__btn"
             href="#"
@@ -63,27 +92,28 @@
           </a>
         </div>
       </div>
-      <div class="panel">
+      <div class="panel hidden--desktop">
         <a
           class="panel__link"
           :class="[sorted == 'all' ? 'panel__link--active' : '']"
           href="#"
+          @click.prevent="sorted = 'all'"
         >
           All
         </a>
         <a
           class="panel__link"
-          :class="[sorted == 'active' ? 'panel__link--active' : '']"
+          :class="[sorted == false ? 'panel__link--active' : '']"
           href="#"
-          @click.prevent="showActive()"
+          @click.prevent="sorted = false"
         >
           Active
         </a>
         <a
           class="panel__link"
-          :class="[sorted == 'completed' ? 'panel__link--active' : '']"
+          :class="[sorted == true ? 'panel__link--active' : '']"
           href="#"
-          @click.prevent="showCompleted()"
+          @click.prevent="sorted = true"
         >
           Completed
         </a>
@@ -111,6 +141,19 @@ export default {
       });
 
       return result.length;
+    },
+    tasks: function() {
+      let condition = this.sorted;
+
+      let active = this.todos.filter(todo=>{
+        return todo.done == condition
+      })
+
+      if (condition === 'all') {
+        return this.todos
+      } else {
+        return active
+      }
     }
   },
   data() {
@@ -160,29 +203,6 @@ export default {
       let sorted = [];
       this.todos.forEach ( todo => {
         if (todo.done !== true) {
-          sorted.push(todo)
-        }
-      })
-
-      this.todos = sorted
-    },
-    showCompleted: function() {
-      this.sorted = 'completed'
-      let sorted = []
-      this.todos.forEach( todo=> {
-        if (todo.done === true) {
-          sorted.push(todo)
-        }
-      })
-
-      this.todos = sorted
-    },
-    showActive: function() {
-      this.sorted = 'active'
-      let sorted = []
-
-      this.todos.forEach( todo=> {
-        if (todo.done == false) {
           sorted.push(todo)
         }
       })
