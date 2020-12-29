@@ -1,6 +1,6 @@
-# FrontEnd Mentor challange 1
+# FrontEnd Mentor challenge 1
 
-A todo webapp, with both dark and light modes. Live demo available at https://todoer.firebaseapp.com
+A todo webapp, with both dark and light modes. Live demo available at https://todooer.firebaseapp.com
 
 ## Screenshots
 

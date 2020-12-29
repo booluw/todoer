@@ -40,11 +40,7 @@
 
 }
 
-/*
-    uncomment in production
 @media (min-width: $view-desktop) {
-*/
-@media (min-width: 1000px) {
     .page {
         &__top {
             padding: 4rem 22rem 8rem;
