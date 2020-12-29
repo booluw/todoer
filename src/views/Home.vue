@@ -35,6 +35,7 @@
             <div
               class="list__check"
               :class="{ 'list__check--active': list.done }"
+              @click="markAsDone(list)"
             >
               <img src="@/assets/images/icon-check.svg" alt="Check this" />
             </div>
@@ -46,6 +47,7 @@
             src="@/assets/images/icon-cross.svg"
             class="line__cancel"
             alt="Delete this"
+            @click="deleteTask(list)"
           />
         </div>
         <div class="list">
@@ -62,9 +64,29 @@
         </div>
       </div>
       <div class="panel">
-        <a class="panel__link panel__link--active" href="#" @click.prevent="showAll()">All</a>
-        <a class="panel__link" href="#" @click.prevent="showActive()">Active</a>
-        <a class="panel__link" href="#" @click.prevent="showCompleted()">Completed</a>
+        <a
+          class="panel__link"
+          :class="[sorted == 'all' ? 'panel__link--active' : '']"
+          href="#"
+        >
+          All
+        </a>
+        <a
+          class="panel__link"
+          :class="[sorted == 'active' ? 'panel__link--active' : '']"
+          href="#"
+          @click.prevent="showActive()"
+        >
+          Active
+        </a>
+        <a
+          class="panel__link"
+          :class="[sorted == 'completed' ? 'panel__link--active' : '']"
+          href="#"
+          @click.prevent="showCompleted()"
+        >
+          Completed
+        </a>
       </div>
       <p class="page__text">
         Drag and drop to reorder
@@ -97,6 +119,7 @@ export default {
         done: false,
         title: ""
       },
+      sorted: 'all',
       lights: true,
       todos: [
         { done: true, title: "Complete online JavaScript course" },
@@ -109,10 +132,66 @@ export default {
     };
   },
   methods: {
-    addTodo: function() {},
+    addToList: function() {
+      this.todos.push(this.newTask)
+      this.newTask = {
+        done: false,
+        title: ""
+      }
+    },
+    markAsDone: function(list) {
+      this.todos.forEach(todo => {
+        if (list.title === todo.title) {
+          list.done = !list.done
+        }
+      })
+    },
+    deleteTask: function(list) {
+      this.todos.forEach(todo => {
+        if (list.title === todo.title) {
+          let index = this.todos.indexOf(list);
+          if (index !== -1) {
+            this.todos.splice(index, 1);
+          }
+        }
+      })
+    },
+    clearCompleted: function() {
+      let sorted = [];
+      this.todos.forEach ( todo => {
+        if (todo.done !== true) {
+          sorted.push(todo)
+        }
+      })
+
+      this.todos = sorted
+    },
+    showCompleted: function() {
+      this.sorted = 'completed'
+      let sorted = []
+      this.todos.forEach( todo=> {
+        if (todo.done === true) {
+          sorted.push(todo)
+        }
+      })
+
+      this.todos = sorted
+    },
+    showActive: function() {
+      this.sorted = 'active'
+      let sorted = []
+
+      this.todos.forEach( todo=> {
+        if (todo.done == false) {
+          sorted.push(todo)
+        }
+      })
+
+      this.todos = sorted
+    }
   },
   watch: {
-    lights() { 
+    lights() {
         let body = document.getElementsByTagName('body').[0]
         body.classList.toggle('dark')
      }
