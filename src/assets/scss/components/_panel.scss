@@ -1,0 +1,27 @@
+.panel {
+    padding: 1rem 1.2rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border-radius;
+    margin: 1.2rem 0 0;
+    box-shadow: 0 10px 50px -10px $lt-dark-grey-blue;
+
+    &__link {
+        padding: 0 3px;
+        margin: 0 5px;
+        color: $lt-dark-grey-blue;
+        font-weight: 700;
+
+        &--active {
+            color: $color-blue--bright;
+        }
+    }
+}
+
+.dark .panel {
+    background-color: $dt-dark-blue--desaturated;
+    color: $dt-light-grey;
+    box-shadow: 0 10px 50px -40px $dt-very-dark-grey-blue;
+}

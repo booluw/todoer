@@ -1,0 +1,52 @@
+.page {
+    position: relative;
+    background-color: $lt-very-light-grey;
+    min-height: 100vh;
+    padding: 0 0 3rem;
+
+    &__top {
+        background-image: url('images/bg-mobile-light.jpg');
+        background-size: cover;
+        padding: 2.3rem 1rem 7rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__bottom {
+        position: absolute;
+        top: 6rem;
+        padding: 0 1rem;
+        background-color: transparent;
+    }
+
+    &__text {
+        margin: 3.5rem 0;
+        text-align: center;
+        font-weight: 700;
+        color: $lt-dark-grey-blue;
+    }
+}
+
+.dark .page {
+    background-color: $dt-dark-blue;
+
+    & .page__top {
+        background-image: url('images/bg-mobile-dark.jpg');
+    }
+
+}
+
+@media (min-width: $view-desktop) {
+    .page {
+        &__top {
+            background-image: url('images/bg-desktop-light.jpg');
+        }
+    }
+
+    .page.dark {
+        & .page__top {
+            background-image: url('images/bg-desktop-dark.jpg');
+        }
+    }
+}

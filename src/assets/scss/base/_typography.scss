@@ -1,0 +1,10 @@
+.heading {
+    font-weight: 700;
+    font-size: 2rem;
+
+    &--main {
+        text-transform: uppercase;
+        letter-spacing: .5rem;
+        color: white;
+    }
+}

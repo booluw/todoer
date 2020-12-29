@@ -1,7 +1,13 @@
 @import "scss/abstract/variables";
 
-@import "scss/base/typography";
+@import "scss/themes/dark",
+        "scss/themes/light";
 
-//@import "scss/components/";
+@import "scss/base/base",
+        "scss/base/typography";
 
-@import "scss/vendor/bootstrap-grid.scss";
+@import "scss/components/input-group",
+        "scss/components/list",
+        "scss/components/panel";
+
+@import "scss/layouts/page";

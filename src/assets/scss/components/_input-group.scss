@@ -1,0 +1,40 @@
+.input-group {
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem 1.2rem;
+    margin: 0 0 1.2rem;
+    overflow: hidden;
+    border-radius: $border-radius;
+
+    &__label {
+        display: block;
+        background-color: transparent;
+        width: 1.5rem;
+        height: 1.5rem;
+        padding: .1rem;
+        margin: 0 1rem 0 0;
+        border-radius: 50%;
+        border: .1rem solid $lt-dark-grey-blue;
+    }
+
+    &__input {
+        outline: none;
+        border: none;
+        background-color: transparent;
+        font-size: 18px;
+    }
+}
+
+.dark .input-group {
+    background-color: $dt-dark-blue--desaturated;
+
+    &__label {
+        border-color: $dt-very-dark-grey-blue--two;
+    }
+
+    &__input {
+        color: $dt-light-grey;
+    }
+}

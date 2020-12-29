@@ -1,7 +1,21 @@
-html {
-    font-size: 42.5%;
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: .2s ease;
 }
 
 body {
-    font-size: 1.6rem;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    font-family: Poppins,sans-serif;
+    background-color: $lt-very-light-grey;
+
+    &.dark {
+        background-color: $dt-dark-blue;
+    }
 }
